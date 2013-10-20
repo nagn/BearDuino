@@ -12,7 +12,6 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO.Ports;
 
-
 namespace BearDuino
 {
     public partial class BearDuinoMain : Form
@@ -127,5 +126,18 @@ namespace BearDuino
             var BearDuinoTts = new BearDuinoTts();
             BearDuinoTts.Show();
         }
+
+        private void tedChat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tedChat_Click(object sender, EventArgs e)
+        {
+            var tedChat = new ChatForm();
+            tedChat.Show();
+        }
+       
+
     }
 }

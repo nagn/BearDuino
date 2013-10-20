@@ -29,5 +29,15 @@ namespace BearDuino
             speechText.Clear();
             speak.Enabled = true;
         }
+
+        private void speechText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void speechText_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

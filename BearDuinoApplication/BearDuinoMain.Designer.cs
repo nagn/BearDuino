@@ -47,6 +47,7 @@
             this.eyesClosed = new System.Windows.Forms.TrackBar();
             this.close = new System.Windows.Forms.Button();
             this.tts = new System.Windows.Forms.Button();
+            this.tedChat = new System.Windows.Forms.Button();
             this.systemSettings.SuspendLayout();
             this.bearPositions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mouthOpened)).BeginInit();
@@ -240,11 +241,22 @@
             this.tts.UseVisualStyleBackColor = true;
             this.tts.Click += new System.EventHandler(this.tts_Click);
             // 
+            // tedChat
+            // 
+            this.tedChat.Location = new System.Drawing.Point(465, 325);
+            this.tedChat.Name = "tedChat";
+            this.tedChat.Size = new System.Drawing.Size(75, 23);
+            this.tedChat.TabIndex = 8;
+            this.tedChat.Text = "Ted Chat";
+            this.tedChat.UseVisualStyleBackColor = true;
+            this.tedChat.Click += new System.EventHandler(this.tedChat_Click);
+            // 
             // BearDuinoMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 386);
+            this.Controls.Add(this.tedChat);
             this.Controls.Add(this.tts);
             this.Controls.Add(this.close);
             this.Controls.Add(this.bearPositions);
@@ -285,6 +297,7 @@
         private System.Windows.Forms.TrackBar eyesClosed;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Button tts;
+        private System.Windows.Forms.Button tedChat;
 
     }
 }

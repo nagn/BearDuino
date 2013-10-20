@@ -41,6 +41,7 @@
             this.speechText.Size = new System.Drawing.Size(909, 134);
             this.speechText.TabIndex = 0;
             this.speechText.Text = "";
+            this.speechText.TextChanged += new System.EventHandler(this.speechText_TextChanged_1);
             // 
             // speak
             // 
