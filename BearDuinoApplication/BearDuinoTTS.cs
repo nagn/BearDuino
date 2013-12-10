@@ -26,7 +26,7 @@ namespace BearDuino
             Thread.Sleep(300);
             BearDuino.Bear.Speak(text);
             BearDuino.Bear.CloseEyes(true);
-            speechText.Clear();
+            //speechText.Clear();
             speak.Enabled = true;
         }
 

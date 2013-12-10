@@ -145,6 +145,21 @@ namespace BearDuino
                 _port.Write(val, 0, 3);
             }
         }
+        //reads the distance from an object in inches
+        public int getDistance()
+        {
+            lock (SyncRoot)
+            {
+                if (_port == null) return 0;
+                if (!_port.IsOpen)
+                    _port.Open();
+                //3 byte padding
+                var val = new char[3];
+                val[0] = (char)122;
+                _port.Write(val, 0, 3);
+                return 0;
+            }
+        }
 
         //this is all that is needed to make your bear speak in your application - It is thread safe blocking call
         public void Speak(string textToSpeak)
@@ -153,6 +168,7 @@ namespace BearDuino
             {
                 using (var synthesizer = new SpeechSynthesizer())
                 {
+
                     synthesizer.SetOutputToDefaultAudioDevice();
                     synthesizer.VisemeReached += _synthesizer_VisemeReached;
 
@@ -161,6 +177,7 @@ namespace BearDuino
                         try
                         {
                             synthesizer.SelectVoice(_voiceName);
+                            synthesizer.Rate = -5;
                         }
                         catch
                         { }
