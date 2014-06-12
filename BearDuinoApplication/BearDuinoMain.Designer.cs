@@ -48,6 +48,10 @@
             this.close = new System.Windows.Forms.Button();
             this.tts = new System.Windows.Forms.Button();
             this.tedChat = new System.Windows.Forms.Button();
+            this.distanceLabel = new System.Windows.Forms.Label();
+            this.bearState = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.emotion = new System.Windows.Forms.Button();
             this.systemSettings.SuspendLayout();
             this.bearPositions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mouthOpened)).BeginInit();
@@ -251,11 +255,55 @@
             this.tedChat.UseVisualStyleBackColor = true;
             this.tedChat.Click += new System.EventHandler(this.tedChat_Click);
             // 
+            // distanceLabel
+            // 
+            this.distanceLabel.AutoSize = true;
+            this.distanceLabel.Location = new System.Drawing.Point(9, 335);
+            this.distanceLabel.Name = "distanceLabel";
+            this.distanceLabel.Size = new System.Drawing.Size(73, 13);
+            this.distanceLabel.TabIndex = 9;
+            this.distanceLabel.Text = "distanceLabel";
+            this.distanceLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // bearState
+            // 
+            this.bearState.AutoSize = true;
+            this.bearState.Location = new System.Drawing.Point(617, 325);
+            this.bearState.Name = "bearState";
+            this.bearState.Size = new System.Drawing.Size(67, 13);
+            this.bearState.TabIndex = 10;
+            this.bearState.Text = "Bear STATE";
+            this.bearState.Click += new System.EventHandler(this.bearState_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(12, 315);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(85, 17);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Autonomous";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // emotion
+            // 
+            this.emotion.Location = new System.Drawing.Point(178, 325);
+            this.emotion.Name = "emotion";
+            this.emotion.Size = new System.Drawing.Size(75, 23);
+            this.emotion.TabIndex = 13;
+            this.emotion.Text = "emotion";
+            this.emotion.UseVisualStyleBackColor = true;
+            this.emotion.Click += new System.EventHandler(this.emotion_Click);
+            // 
             // BearDuinoMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 386);
+            this.Controls.Add(this.emotion);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.bearState);
+            this.Controls.Add(this.distanceLabel);
             this.Controls.Add(this.tedChat);
             this.Controls.Add(this.tts);
             this.Controls.Add(this.close);
@@ -266,6 +314,7 @@
             this.Name = "BearDuinoMain";
             this.Text = "BearDuino Sample Application";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BearDuinoMain_FormClosing);
+            this.Load += new System.EventHandler(this.BearDuinoMain_Load);
             this.systemSettings.ResumeLayout(false);
             this.systemSettings.PerformLayout();
             this.bearPositions.ResumeLayout(false);
@@ -274,6 +323,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eyesOpened)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyesClosed)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -298,6 +348,10 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Button tts;
         private System.Windows.Forms.Button tedChat;
+        private System.Windows.Forms.Label distanceLabel;
+        private System.Windows.Forms.Label bearState;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button emotion;
 
     }
 }

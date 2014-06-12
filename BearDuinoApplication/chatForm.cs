@@ -28,6 +28,8 @@ namespace BearDuino
             //bot1 = factory.Create(ChatterBotType.PANDORABOTS, "923c98f3de35606b");
             //Chompsky
             //bot1 = factory.Create(ChatterBotType.PANDORABOTS, "b0dafd24ee35a477");
+            //Bearbot
+            //bot1 = factory.Create(ChatterBotType.PANDORABOTS, "d5a9d6d49e35633f");
             ChatterBot bot1 = factory.Create(ChatterBotType.CLEVERBOT);
             bot1session = bot1.CreateSession();
 
@@ -58,6 +60,7 @@ namespace BearDuino
             if (entryBox.Text != "")
             {
                 String inputText = entryBox.Text;
+                BearDuino.Bear.CloseEyes(true);
                 sendButton.Text = "Thinking";
                 entryBox.Text = "";
                 entryBox.Enabled = false;
@@ -66,13 +69,12 @@ namespace BearDuino
                 messageLogBox.AppendText("YOU: " + inputText + "\n");
                 String outputText = HtmlRemoval.StripTagsCharArray(bot1session.Think(inputText));
                 messageLogBox.AppendText("BOT: " + outputText + "\n");
-
+                
                 var text = outputText;
                 text = text.TedClean();
                 BearDuino.Bear.CloseEyes(false);
                 Thread.Sleep(300);
                 BearDuino.Bear.Speak(text);
-                BearDuino.Bear.CloseEyes(true);
                 entryBox.Enabled = true;
                 sendButton.Enabled = true;
                 sendButton.Text = "Send";

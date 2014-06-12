@@ -93,7 +93,12 @@ namespace BearDuino
                 _port.Dispose();
             }
             _port = port;
+            //set port timeouts - 300 milliseconds
+            _port.ReadTimeout = 300;
+            _port.WriteTimeout = 300;
             port.Open();
+            
+            
         }
 
         //the basic values needed for good lip-synching of a particular bear
@@ -108,6 +113,8 @@ namespace BearDuino
         {
             InitializeMouthMap();
             _eyesClosed = _eyesOpened = _mouthOpened = 50;
+
+        
         }
 
         public static BearDuino Bear
@@ -146,19 +153,29 @@ namespace BearDuino
             }
         }
         //reads the distance from an object in inches
-        public int getDistance()
+        public string GetDistance()
         {
             lock (SyncRoot)
             {
-                if (_port == null) return 0;
+                if (_port == null) return "-1";
                 if (!_port.IsOpen)
                     _port.Open();
                 //3 byte padding
                 var val = new char[3];
                 val[0] = (char)122;
                 _port.Write(val, 0, 3);
-                return 0;
-            }
+                try
+                {
+                    return _port.ReadLine();
+                }
+                catch (TimeoutException) 
+                { 
+
+                }
+                    return "-1";
+             }
+                    
+                
         }
 
         //this is all that is needed to make your bear speak in your application - It is thread safe blocking call
@@ -177,7 +194,7 @@ namespace BearDuino
                         try
                         {
                             synthesizer.SelectVoice(_voiceName);
-                            synthesizer.Rate = -5;
+                            synthesizer.Rate = -1;
                         }
                         catch
                         { }
@@ -198,6 +215,15 @@ namespace BearDuino
         public void CloseEyes(bool close)
         {
             SendPosition(close ? _eyesClosed : _eyesOpened);
+        }
+
+        //routine for blinking
+        public void Blink(int blinkDuration)
+        {
+            CloseEyes(true);
+            Thread.Sleep(blinkDuration);
+            CloseEyes(false);
+
         }
 
         //normalizes the raw lip-synching possitions to your particualr bear

@@ -38,7 +38,7 @@ void loop() {
       duration = pulseIn(pingPin, HIGH); // Read echo pulse
       inches = duration / 74 / 2;        // Convert to inches
       Serial.println(inches);            // Display result
-      Serial.write(inches);              // Return ultrasonic range finder in inches
+      
     }
   }
 
